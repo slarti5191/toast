@@ -42,6 +42,8 @@ func main() {
         Title: "My notification",
         Message: "Some message about how important something is...",
         Icon: "go.png", // This file must exist (remove this line if it doesn't)
+        Hero: "hero.png", // This file must exist (remove this line if it doesn't)
+        Footer: "Some optional footer text",
         Actions: []toast.Action{
             {"protocol", "I'm a button", ""},
             {"protocol", "Me too!", ""},

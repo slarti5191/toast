@@ -1,0 +1,6 @@
+github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d h1:VhgPp6v9qf9Agr/56bj7Y/xa04UccTW04VP0Qed4vnQ=
+github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d/go.mod h1:YUTz3bUH2ZwIWBy3CJBeOBEugqcmXREj14T+iG/4k4U=
+github.com/slarti5191/toast v0.0.0-20190211030409-01e6764cf0a4 h1:3f/aNL0hFsAaOOaBrlMKJVW8nqqoBiyQ2worjd1me8s=
+github.com/slarti5191/toast v0.0.0-20190211030409-01e6764cf0a4/go.mod h1:m/hR/OKl4YChL9b5FuGUm38MecoiqN5j/mky2ZeddNE=
+gopkg.in/urfave/cli.v1 v1.18.1 h1:Z65+UJjxGDZHRdsnYU+Q+KCFrjSwc/VVB0X6jvGBd2U=
+gopkg.in/urfave/cli.v1 v1.18.1/go.mod h1:vuBzUtMdQeixQj8LVd+/98pzhxNGQoyuPBlsXHOQNO0=

@@ -1,12 +1,11 @@
 package main
 
 import (
+	"github.com/slarti5191/toast"
+	"gopkg.in/urfave/cli.v1"
 	"log"
 	"os"
 	"time"
-
-	"gopkg.in/toast.v1"
-	"gopkg.in/urfave/cli.v1"
 )
 
 func main() {
@@ -39,6 +38,14 @@ func main() {
 		cli.StringFlag{
 			Name:  "icon, i",
 			Usage: "the app icon path (displays to the left of the toast)",
+		},
+		cli.StringFlag{
+			Name:  "hero, h",
+			Usage: "the hero image path (displays along top of the toast)",
+		},
+		cli.StringFlag{
+			Name:  "footer, f",
+			Usage: "the toast's footer message",
 		},
 		cli.StringFlag{
 			Name:  "activation-type",
@@ -82,6 +89,8 @@ func main() {
 		title := c.String("title")
 		message := c.String("message")
 		icon := c.String("icon")
+		hero := c.String("hero")
+		footer := c.String("footer")
 		activationType := c.String("activation-type")
 		activationArg := c.String("activation-arg")
 		audio, _ := toast.Audio(c.String("audio"))
@@ -114,6 +123,8 @@ func main() {
 			Title:               title,
 			Message:             message,
 			Icon:                icon,
+			Hero:                hero,
+			Footer:              footer,
 			Actions:             actions,
 			ActivationType:      activationType,
 			ActivationArguments: activationArg,
