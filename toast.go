@@ -73,14 +73,32 @@ $template = @"
     <visual>
         <binding template="ToastGeneric">
             {{if .Icon}}
-            <image placement="appLogoOverride" src="{{.Icon}}" />
+            <image placement="appLogoOverride" hint-crop="circle" src="{{.Icon}}" />
             {{end}}
             {{if .Title}}
-            <text><![CDATA[{{.Title}}]]></text>
+ 			<group>
+				<subgroup>
+            		<text hint-style="title"><![CDATA[{{.Title}}]]></text>
+				</subgroup>
+			</group>
             {{end}}
+			{{if .Hero}}
+			<image placement="hero" src="{{.Hero}}" />
+			{{end}}
             {{if .Message}}
-            <text><![CDATA[{{.Message}}]]></text>
+			<group>
+				<subgroup>
+            		<text hint-style="body" hint-wrap="true"><![CDATA[{{.Message}}]]></text>
+				</subgroup>
+			</group>
             {{end}}
+			{{if .Footer}}
+			<group>
+				<subgroup>
+					<text hint-style="footer" hint-wrap="true"><![CDATA[{{.Footer}}]]></text>
+				</subgroup>
+			</group>
+			{{end}}
         </binding>
     </visual>
     {{if ne .Audio "silent"}}
@@ -158,6 +176,12 @@ type Notification struct {
 	// An optional path to an image on the OS to display to the left of the title & message.
 	Icon string
 
+	// Optional hero image
+	Hero string
+
+	// Optional footer message
+	Footer string
+
 	// The type of notification level action (like toast.Action)
 	ActivationType string
 
@@ -214,6 +238,8 @@ func (n *Notification) buildXML() (string, error) {
 	return out.String(), nil
 }
 
+// Push
+//
 // Builds the Windows PowerShell script & invokes it, causing the toast to display.
 //
 // Note: Running the PowerShell script is by far the slowest process here, and can take a few
@@ -242,6 +268,8 @@ func (n *Notification) Push() error {
 	return invokeTemporaryScript(xml)
 }
 
+// Audio
+//
 // Returns a toastAudio given a user-provided input (useful for cli apps).
 //
 // If the "name" doesn't match, then the default toastAudio is returned, along with ErrorInvalidAudio.
@@ -318,6 +346,8 @@ func Audio(name string) (toastAudio, error) {
 	}
 }
 
+// Duration
+//
 // Returns a toastDuration given a user-provided input (useful for cli apps).
 //
 // The default duration is short. If the "name" doesn't match, then the default toastDuration is returned,
