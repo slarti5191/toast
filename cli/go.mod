@@ -1,4 +1,4 @@
-module github.com/go-toast/toast/cli
+module github.com/slarti5191/toast/cli
 
 go 1.20
 
